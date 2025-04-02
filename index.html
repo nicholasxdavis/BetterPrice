@@ -391,23 +391,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-<!-- Search Section -->
 <section id="search" class="py-16 md:py-24 bg-white relative">
-    <!-- Floating background elements -->
     <div class="absolute inset-0 overflow-hidden pointer-events-none">
-        <!-- Subtle grid pattern -->
         <div class="absolute inset-0 bg-grid-pattern opacity-05"></div>
     </div>
 
     <div class="container mx-auto px-6 relative z-10">
         <div class="max-w-4xl mx-auto rounded-2xl p-0.5 bg-gradient-to-r from-primary-100 to-secondary-200">
             <div class="bg-white rounded-[15px] p-8 md:p-12 relative">
-                <!-- Decorative corner elements -->
                 <div class="absolute -right-10 -top-10 w-32 h-32 rounded-full bg-primary-500/5"></div>
                 <div class="absolute -left-10 -bottom-10 w-40 h-40 rounded-full bg-secondary-500/5"></div>
                 
                 <div class="text-center mb-8 relative">
-                    <!-- Animated Logo -->
                     <div class="w-16 h-16 rounded-xl bg-gradient-to-r from-primary-500 to-secondary-500 flex items-center justify-center mx-auto mb-6 shadow-lg animate-pulse-slow">
                         <i class="fas fa-percentage text-white text-2xl"></i>
                     </div>
@@ -421,18 +416,16 @@ document.addEventListener("DOMContentLoaded", function () {
                 </div>
 
                 <div class="max-w-2xl mx-auto relative">
-                    <!-- Search input with floating label effect -->
                     <div class="relative">
-                        <div class="flex gap-2 search-shadow rounded-xl">
+                        <div class="flex flex-col md:flex-row gap-2 search-shadow rounded-xl">
                             <input type="text" placeholder="Search for products, brands, or categories..." 
                                    class="flex-grow px-5 py-3.5 rounded-l-xl border-0 focus:ring-2 focus:ring-primary-400 focus:outline-none bg-white/95 backdrop-blur-sm">
-                            <button class="bg-accent-500 hover:bg-accent-600 text-white px-6 py-3.5 rounded-r-xl font-medium transition-colors flex items-center justify-center">
+                            <button class="bg-accent-500 hover:bg-accent-600 text-white px-6 py-3.5 rounded-xl font-medium transition-colors flex items-center justify-center">
                                 <i class="fas fa-search mr-2"></i>
                                 <span>Search</span>
                             </button>
                         </div>
                         
-                        <!-- Search results container -->
                         <div id="searchResults" class="hidden absolute z-50 left-0 right-0 top-full mt-2 bg-white border border-gray-200 rounded-lg shadow-xl overflow-y-auto" style="max-height: min(500px, 80vh);">
                             <!-- Results will be inserted here -->
                         </div>
@@ -462,6 +455,7 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
     </div>
 </section>
+
 
 <style>
     /* Search results styling */
@@ -1293,7 +1287,7 @@ function getStaticDeals() {
 </footer>
 
 
-    <script>
+<script>
     document.addEventListener('DOMContentLoaded', function () {
         // Mobile menu toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
