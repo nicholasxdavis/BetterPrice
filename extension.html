@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BetterPrice - Install Extension</title>
+    <link rel="icon" type="image/png" href="images\betterprice.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+        <style> 
+body {
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    width: 100vw;       /* Ensure body width is 100% of the viewport */
+    margin: 0;         /* Remove default margin */
+    padding: 0;        /* Remove default padding */
+}
+
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            500: '#0ea5e9',
+                            600: '#0284c7'
+                        },
+                        secondary: {
+                            500: '#8b5cf6',
+                            600: '#7c3aed'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        display: ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=300;400;500;600;700&family=Poppins:wght=500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .gradient-text {
+            background: linear-gradient(90deg, #0ea5e9, #8b5cf6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .extension-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .extension-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .browser-icon {
+            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-gray-800 bg-gray-50">
+    <!-- Header (Same as main site) -->
+    <header class="fixed w-full z-50 border-b border-gray-100/50 bg-white/85 backdrop-blur-sm" style="height: 80px;">
+        <div class="container mx-auto px-6 h-full flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-lg bg-primary-500 flex items-center justify-center">
+                    <i class="fas fa-percentage text-white text-lg"></i>
+                </div>
+                <span class="text-2xl font-bold text-gray-900">Better<span class="gradient-text">Price</span></span>
+            </div>
+            
+            <nav class="hidden lg:flex items-center space-x-8">
+                <a href="./index.html" class="text-gray-600 hover:text-primary-600 transition-colors font-medium">Home</a>
+                <a href="./index.html#search" class="text-gray-600 hover:text-primary-600 transition-colors font-medium">Search Products</a>
+                <a href="./index.html#how-it-works" class="text-gray-600 hover:text-primary-600 transition-colors font-medium">How It Works</a>
+                <a href="#" class="text-primary-600 font-medium">Extension</a>
+            </nav>
+            
+            <div class="flex items-center space-x-4">
+                <a href="./index.html#search" class="hidden md:inline-flex items-center justify-center px-5 py-2.5 text-sm font-medium rounded-lg bg-accent-500 hover:bg-accent-600 text-white transition-colors">
+                    Try BetterPrice
+                </a>
+                <button id="mobile-menu-button" class="lg:hidden text-gray-600 hover:text-primary-600 transition-colors p-2 rounded-lg">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+ <div id="mobile-menu" class="mobile-menu lg:hidden bg-white border-t border-gray-100 hidden"> <!-- Added hidden class here -->
+    <div class="container mx-auto px-6 py-4 flex flex-col space-y-4">
+        <a href="index.html" class="py-2 font-medium text-gray-700 hover:text-primary-600 transition-colors">Home</a>
+        <a href="index.html#search" class="text-gray-600 hover:text-primary-600 transition-colors font-medium">Search</a>
+        <a href="index.html#search" class="py-2 font-medium text-gray-700 hover:text-primary-600 transition-colors">Search Products</a>
+        <a href="index.html#features" class="py-2 font-medium text-gray-700 hover:text-primary-600 transition-colors">Features</a>
+        <a href="index.html#how-it-works" class="py-2 font-medium text-gray-700 hover:text-primary-600 transition-colors">How It Works</a>
+        <button onclick="window.open('index.html#search', '_blank')" class="w-full mt-2 inline-flex items-center justify-center px-5 py-2.5 text-sm font-medium rounded-lg bg-accent-500 hover:bg-accent-600 text-white transition-colors">
+            Try BetterPrice
+        </button>
+    </div>
+</div>
+
+    </header>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get references to the button and mobile menu
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        // Add click event listener to the mobile menu button
+        mobileMenuButton.addEventListener('click', function() {
+            // Toggle the mobile menu visibility
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close the mobile menu when clicking outside of it
+        window.addEventListener('click', function(event) {
+            if (!mobileMenuButton.contains(event.target) && !mobileMenu.contains(event.target)) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+    });
+</script>
+
+
+            
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        },
+                        secondary: {
+                            50: '#f5f3ff',
+                            100: '#ede9fe',
+                            200: '#ddd6fe',
+                            300: '#c4b5fd',
+                            400: '#a78bfa',
+                            500: '#8b5cf6',
+                            600: '#7c3aed',
+                            700: '#6d28d9',
+                            800: '#5b21b6',
+                            900: '#4c1d95',
+                        },
+                        accent: {
+                            50: '#ecfdf5',
+                            100: '#d1fae5',
+                            200: '#a7f3d0',
+                            300: '#6ee7b7',
+                            400: '#34d399',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            800: '#065f46',
+                            900: '#064e3b',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Inter"', 'system-ui', 'sans-serif'],
+                        display: ['"Poppins"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Main Content -->
+    <main class="pt-32 pb-16" style="padding-top: 80px;">
+<!-- CTA Section -->
+<section class="py-16 bg-gradient-to-r from-primary-500 to-secondary-500">
+    <div class="container mx-auto px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6 font-display">Ready to start saving effortlessly?</h2>
+            <p class="text-xl text-white mb-8 max-w-2xl mx-auto">Join 500,000+ savvy shoppers who save an average of $372 per year.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#download" class="inline-flex items-center justify-center px-7 py-3.5 text-base font-medium rounded-xl bg-white hover:bg-gray-100 text-primary-600 transition-colors shadow-lg">
+                    <i class="fas fa-download mr-2"></i>
+                    Download Now
+                </a>
+                <button id="video-modal-trigger" class="inline-flex items-center justify-center px-7 py-3.5 text-base font-medium rounded-xl border-2 border-white hover:bg-white/10 text-white transition-colors">
+                    <i class="fas fa-play-circle mr-2"></i>
+                    Watch Demo
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Video Modal -->
+<div id="video-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/90 backdrop-blur-sm">
+    <div class="relative w-full max-w-6xl mx-auto flex flex-col items-center">
+        <!-- Video Container -->
+        <div class="w-full bg-black rounded-xl overflow-hidden shadow-2xl relative">
+            <!-- Close Button - Now positioned on top of the video -->
+            <button id="video-modal-close" class="absolute -right-2 -top-2 z-10 text-white/80 hover:text-white bg-black/80 rounded-full p-2 transition-colors hover:bg-black">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+            
+            <div class="aspect-w-16 aspect-h-9 w-full">
+                <video id="demo-video" class="w-full" controls poster="images/video-poster.jpg">
+                    <source src="images/video.webm" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            
+            <!-- Video Info Panel -->
+            <div class="w-full bg-gray-800 p-6">
+                <div class="max-w-4xl mx-auto">
+                    <div>
+                        <h3 class="text-xl font-bold text-white mb-1">PricePulse Demo Walkthrough</h3>
+                        <p class="text-gray-300">See how PricePulse helps you find the best deals automatically (2:34)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Video Modal Functionality
+    const modal = document.getElementById('video-modal');
+    const video = document.getElementById('demo-video');
+    const modalTrigger = document.getElementById('video-modal-trigger');
+    const modalClose = document.getElementById('video-modal-close');
+    
+    modalTrigger.addEventListener('click', () => {
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+        video.play();
+    });
+    
+    modalClose.addEventListener('click', () => {
+        modal.classList.add('hidden');
+        document.body.style.overflow = '';
+        video.pause();
+    });
+    
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.classList.add('hidden');
+            document.body.style.overflow = '';
+            video.pause();
+        }
+    });
+    
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            modal.classList.add('hidden');
+            document.body.style.overflow = '';
+            video.pause();
+        }
+    });
+</script>
+
+<style>
+    /* Video Modal Styling */
+    #video-modal {
+        transition: opacity 0.3s ease;
+    }
+    
+    /* Wider video container */
+    .max-w-6xl {
+        max-width: 72rem; /* 1152px */
+    }
+    
+    /* Perfect 16:9 aspect ratio */
+    .aspect-w-16 {
+        position: relative;
+        padding-bottom: 56.25%;
+    }
+    
+    .aspect-w-16 video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    /* Smooth rounded corners */
+    .rounded-xl {
+        border-radius: 1rem;
+    }
+</style>
+        <!-- Hero Section -->
+        <section class="py-12 md:py-20">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto text-center">
+                	<span class="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-accent-100 text-accent-800 mb-4 mx-auto">
+        INSTALL EXTENSION
+    </span>
+                    <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-display">
+                        Supercharge your shopping with our <span class="gradient-text">browser extension</span>
+                    </h1>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-10">
+                        Get real-time price comparisons without leaving your favorite stores. Save money effortlessly on every purchase.
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-4 mb-16">
+                        <span class="text-sm font-medium text-gray-500">Available for:</span>
+                        <div class="flex items-center space-x-6">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Google_Chrome_icon_%28September_2014%29.svg" alt="Chrome" class="h-8 browser-icon" title="Google Chrome">
+                            <img src="https://logo.clearbit.com/microsoftedge.com" alt="edge" class="h-8 opacity-100 hover:opacity-80 transition-opacity">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Firefox_logo%2C_2019.svg" alt="Firefox" class="h-8 browser-icon" title="Mozilla Firefox">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/5/52/Safari_browser_logo.svg" alt="Safari" class="h-8 browser-icon" title="Apple Safari">
+                        </div>
+                    </div>
+                </div>
+                
+<div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+    <!-- Extension Features -->
+    <div class="space-y-6 h-[520px] flex flex-col justify-between">
+        <div class="extension-card bg-white rounded-2xl p-8 border border-gray-200 flex-grow">
+            <div class="flex items-start">
+                <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-primary-500/10 flex items-center justify-center text-primary-500 mr-4">
+                    <i class="fas fa-bolt text-xl"></i>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Instant Price Comparisons</h3>
+                    <p class="text-gray-600">See competitor prices automatically while you shop on any retailer site.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="extension-card bg-white rounded-2xl p-8 border border-gray-200 flex-grow">
+            <div class="flex items-start">
+                <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-secondary-500/10 flex items-center justify-center text-secondary-500 mr-4">
+                    <i class="fas fa-tag text-xl"></i>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Automatic Coupon Apply</h3>
+                    <p class="text-gray-600">We test and apply all valid coupon codes at checkout automatically.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="extension-card bg-white rounded-2xl p-8 border border-gray-200 flex-grow">
+            <div class="flex items-start">
+                <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-green-500/10 flex items-center justify-center text-green-500 mr-4">
+                    <i class="fas fa-history text-xl"></i>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Price History Charts</h3>
+                    <p class="text-gray-600">View 90-day price trends to know if it's the right time to buy.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+                <!-- Interactive Extension Preview -->
+<div class="relative">
+<div class="extension-card bg-white rounded-2xl overflow-hidden border border-gray-200 h-[520px]">
+
+        <!-- Extension Header -->
+        <div class="p-3 border-b border-gray-200 flex items-center justify-between bg-gradient-to-r from-primary-500 to-primary-600">
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-percentage text-white"></i>
+                <span class="text-white font-medium text-sm">BetterPrice</span>
+            </div>
+            <div class="flex items-center space-x-3">
+                <button class="text-white/80 hover:text-white">
+                    <i class="fas fa-cog text-sm"></i>
+                </button>
+                <button class="text-white/80 hover:text-white">
+                    <i class="fas fa-times text-sm"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Extension Body - Simulating Amazon Product Page -->
+        <div class="p-4">
+            <div class="border border-gray-200 rounded-lg overflow-hidden">
+                <!-- Product Header -->
+                <div class="bg-gray-50 p-3 border-b border-gray-200 flex items-center">
+                    <div class="w-10 h-10 bg-gray-200 rounded flex items-center justify-center mr-3">
+                        <i class="fas fa-box text-gray-500"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-medium text-sm text-gray-900 truncate">Wireless Headphones</h4>
+                        <p class="text-xs text-gray-500">Current price: <span class="font-medium text-primary-600">$179.99</span></p>
+                    </div>
+                </div>
+                
+                <!-- Price Comparison Table -->
+                <div class="divide-y divide-gray-200">
+                    <!-- Retailer 1 -->
+                    <div class="p-3 hover:bg-gray-50 cursor-pointer">
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center">
+                                <div class="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center mr-2">
+                                    <span class="text-xs font-bold text-blue-600">A</span>
+                                </div>
+                                <span class="text-sm font-medium">Amazon</span>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-sm font-bold text-primary-600">$179.99</p>
+                                <p class="text-xs text-gray-500">Free shipping</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Retailer 2 -->
+                    <div class="p-3 hover:bg-gray-50 cursor-pointer">
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center">
+                                <div class="w-6 h-6 bg-yellow-100 rounded-full flex items-center justify-center mr-2">
+                                    <span class="text-xs font-bold text-yellow-600">B</span>
+                                </div>
+                                <span class="text-sm font-medium">BestBuy</span>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-sm font-bold text-gray-700">$189.99</p>
+                                <p class="text-xs text-gray-500">Free shipping</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Retailer 3 -->
+                    <div class="p-3 hover:bg-gray-50 cursor-pointer">
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center">
+                                <div class="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center mr-2">
+                                    <span class="text-xs font-bold text-red-600">W</span>
+                                </div>
+                                <span class="text-sm font-medium">Walmart</span>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-sm font-bold text-gray-700">$199.99</p>
+                                <p class="text-xs text-gray-500">$5.99 shipping</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Coupon Section -->
+                <div class="bg-green-50 p-3 border-t border-green-100">
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center">
+                            <i class="fas fa-tag text-green-500 mr-2"></i>
+                            <span class="text-sm font-medium text-green-800">1 coupon applied</span>
+                        </div>
+                        <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">-$20.00</span>
+                    </div>
+                </div>
+                
+<!-- Price History Panel - Full Width -->
+<div class="p-3 bg-gray-50 border-t border-gray-200">
+    <div class="flex justify-between items-center mb-2">
+        <h4 class="text-xs font-medium text-gray-700">PRICE HISTORY</h4>
+        <span class="text-xs text-gray-500">Last 90 days</span>
+    </div>
+    <div class="h-24 bg-white rounded border border-gray-200 overflow-hidden">
+        <!-- Full-width SVG graph -->
+        <svg viewBox="0 0 300 80" preserveAspectRatio="none" class="w-full h-full">
+            <!-- Grid lines -->
+            <line x1="0" y1="20" x2="300" y2="20" stroke="#e5e7eb" stroke-width="1" stroke-dasharray="2,2" />
+            <line x1="0" y1="40" x2="300" y2="40" stroke="#e5e7eb" stroke-width="1" stroke-dasharray="2,2" />
+            <line x1="0" y1="60" x2="300" y2="60" stroke="#e5e7eb" stroke-width="1" stroke-dasharray="2,2" />
+            
+            <!-- Price trend line -->
+            <path d="M0,60 C50,60 70,30 100,40 C130,50 150,10 200,20 C230,25 250,35 300,30" 
+                  stroke="#0ea5e9" stroke-width="2" fill="none" stroke-linecap="round" />
+            
+            <!-- Current price point highlight -->
+            <circle cx="300" cy="30" r="4" fill="#0ea5e9" />
+            <g transform="translate(285,15)">
+                <rect x="-20" y="-12" width="40" height="20" rx="4" fill="#0ea5e9" />
+                <text x="0" y="3" font-size="10" fill="white" text-anchor="middle" font-weight="500">$179.99</text>
+            </g>
+            
+            <!-- Historical low marker -->
+            <circle cx="150" cy="18" r="4" fill="#10b981" />
+            <text x="150" y="10" font-size="8" fill="#10b981" text-anchor="middle">$199.99</text>
+            
+            <!-- X-axis labels -->
+            <text x="5" y="75" font-size="8" fill="#6b7280">90d ago</text>
+            <text x="140" y="75" font-size="8" fill="#6b7280">45d ago</text>
+            <text x="275" y="75" font-size="8" fill="#6b7280">Today</text>
+        </svg>
+    </div>
+</div>
+                
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+        <!-- FAQ Section -->
+<section id="faq" class="py-16 md:py-24 bg-white">
+    <div class="container mx-auto px-6">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <span class="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-primary-100 text-primary-800 mb-4">FAQs</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 font-display">Frequently Asked Questions</h2>
+            <p class="text-lg text-gray-600">Everything you need to know about our price comparison service</p>
+        </div>
+        
+        <div class="max-w-4xl mx-auto">
+            <!-- FAQ Item 1 -->
+            <div class="bg-white rounded-xl border border-gray-200 shadow-sm mb-6 overflow-hidden">
+                <button class="faq-toggle w-full flex justify-between items-center p-6 text-left">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 rounded-lg bg-primary-100 flex items-center justify-center text-primary-500 mr-4">
+                            <i class="fas fa-question"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900">How does BetterPrice find the best prices?</h3>
+                    </div>
+                    <i class="fas fa-chevron-down text-gray-400 transition-transform duration-300"></i>
+                </button>
+                <div class="faq-content px-6 pb-6 hidden">
+                    <div class="pl-14">
+                        <p class="text-gray-600">Our system scans thousands of retailers in real-time using advanced APIs and web scraping technology. We compare prices, shipping costs, and available discounts to ensure you always get the best deal.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- FAQ Item 2 -->
+            <div class="bg-white rounded-xl border border-gray-200 shadow-sm mb-6 overflow-hidden">
+                <button class="faq-toggle w-full flex justify-between items-center p-6 text-left">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 rounded-lg bg-secondary-100 flex items-center justify-center text-secondary-500 mr-4">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900">Is my payment information secure when I buy through BetterPrice?</h3>
+                    </div>
+                    <i class="fas fa-chevron-down text-gray-400 transition-transform duration-300"></i>
+                </button>
+                <div class="faq-content px-6 pb-6 hidden">
+                    <div class="pl-14">
+                        <p class="text-gray-600">Absolutely. We don't process any payments directly. When you click "Buy Now", you're taken to the retailer's secure checkout system. We never store or handle your payment information.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- FAQ Item 3 -->
+            <div class="bg-white rounded-xl border border-gray-200 shadow-sm mb-6 overflow-hidden">
+                <button class="faq-toggle w-full flex justify-between items-center p-6 text-left">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 rounded-lg bg-accent-100 flex items-center justify-center text-accent-500 mr-4">
+                            <i class="fas fa-bell"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900">How do price alerts work?</h3>
+                    </div>
+                    <i class="fas fa-chevron-down text-gray-400 transition-transform duration-300"></i>
+                </button>
+                <div class="faq-content px-6 pb-6 hidden">
+                    <div class="pl-14">
+                        <p class="text-gray-600">Set your target price for any product, and we'll monitor prices across all retailers. When the price drops to your desired amount, we'll immediately notify you via email or browser notification.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- FAQ Item 4 -->
+            <div class="bg-white rounded-xl border border-gray-200 shadow-sm mb-6 overflow-hidden">
+                <button class="faq-toggle w-full flex justify-between items-center p-6 text-left">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 rounded-lg bg-primary-100 flex items-center justify-center text-primary-500 mr-4">
+                            <i class="fas fa-sync-alt"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900">How often are prices updated?</h3>
+                    </div>
+                    <i class="fas fa-chevron-down text-gray-400 transition-transform duration-300"></i>
+                </button>
+                <div class="faq-content px-6 pb-6 hidden">
+                    <div class="pl-14">
+                        <p class="text-gray-600">Our system updates prices every 5-15 minutes for most products. For high-demand items during sales events, we refresh prices every 60 seconds to ensure you have the most current information.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- FAQ Item 5 -->
+            <div class="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden">
+                <button class="faq-toggle w-full flex justify-between items-center p-6 text-left">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 rounded-lg bg-secondary-100 flex items-center justify-center text-secondary-500 mr-4">
+                            <i class="fas fa-percentage"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900">Do you apply coupon codes automatically?</h3>
+                    </div>
+                    <i class="fas fa-chevron-down text-gray-400 transition-transform duration-300"></i>
+                </button>
+                <div class="faq-content px-6 pb-6 hidden">
+                    <div class="pl-14">
+                        <p class="text-gray-600">Yes! Our browser extension automatically tests and applies all valid coupon codes at checkout. For mobile users, we provide the codes which you can copy and paste during checkout.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-16 text-center">
+                <a href="#contact" class="inline-flex items-center justify-center px-7 py-3.5 text-base font-medium rounded-xl border-2 border-primary-500 hover:bg-primary-50 text-primary-600 transition-colors">
+                    Still have questions? Contact us
+                    <i class="fas fa-envelope ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    // FAQ Toggle Functionality
+    document.querySelectorAll('.faq-toggle').forEach(button => {
+        button.addEventListener('click', () => {
+            const faqItem = button.closest('.bg-white');
+            const content = faqItem.querySelector('.faq-content');
+            const icon = button.querySelector('i');
+            
+            // Toggle content
+            content.classList.toggle('hidden');
+            
+            // Rotate icon
+            icon.classList.toggle('transform');
+            icon.classList.toggle('rotate-180');
+            
+            // Close other open FAQs
+            document.querySelectorAll('.bg-white').forEach(item => {
+                if (item !== faqItem) {
+                    item.querySelector('.faq-content').classList.add('hidden');
+                    item.querySelector('i').classList.remove('transform', 'rotate-180');
+                }
+            });
+        });
+    });
+</script>
+    </main>
+
+    <!-- Footer -->
+<footer class="bg-gray-900 text-gray-400 pt-16 pb-8">
+    <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-10 mb-12">
+            <div class="md:col-span-2 flex flex-col items-center">
+                <div class="flex items-center space-x-3 mb-4">
+                    <div class="w-10 h-10 rounded-lg bg-primary-500 flex items-center justify-center">
+                        <i class="fas fa-percentage text-white text-lg"></i>
+                    </div>
+                    <span class="text-2xl font-bold text-white">Better<span class="gradient-text">Price</span></span>
+                </div>
+                <p class="mb-6 text-center">The smart way to shop and save money on every purchase.</p>
+                <div class="flex space-x-4 justify-center">
+                    <a href="#" class="w-8 h-8 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="flex flex-col items-center">
+                <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4 text-center">Company</h4>
+                <ul class="space-y-3 text-center">
+                    <li><a href="#" class="hover:text-white transition-colors">About Us</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Careers</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Blog</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Press</a></li>
+                </ul>
+            </div>
+            
+            <div class="flex flex-col items-center">
+                <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4 text-center">Resources</h4>
+                <ul class="space-y-3 text-center">
+                    <li><a href="#" class="hover:text-white transition-colors">Help Center</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Browser Extension</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Deal Alerts</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Retailer Partners</a></li>
+                </ul>
+            </div>
+            
+            <div class="flex flex-col items-center">
+                <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4 text-center">Legal</h4>
+                <ul class="space-y-3 text-center">
+                    <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Terms of Service</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Cookie Policy</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Affiliate Disclosure</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
+            <p class="text-sm mb-4 md:mb-0 text-center">© 2025 BetterPrice. All rights reserved.</p>
+            <div class="flex space-x-6 justify-center">
+                <a href="#" class="text-sm hover:text-white transition-colors">Privacy Policy</a>
+                <a href="#" class="text-sm hover:text-white transition-colors">Terms of Service</a>
+                <a href="#" class="text-sm hover:text-white transition-colors">Cookies</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
