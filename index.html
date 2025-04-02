@@ -960,7 +960,22 @@ function getStaticDeals() {
             </div>
         </div>
     </section>
-    <!-- FAQ Section -->
+    <style>
+  /* Add this CSS to your stylesheet */
+  .faq-icon-container {
+    width: 40px !important;  /* Fixed width */
+    height: 40px !important; /* Fixed height */
+    min-width: 40px !important; /* Prevent shrinking */
+    flex-shrink: 0 !important; /* Prevent flex shrinking */
+  }
+  
+  /* Adjust the icon size if needed */
+  .faq-icon-container i {
+    font-size: 1rem; /* Adjust as needed */
+  }
+</style>
+
+<!-- FAQ Section -->
 <section id="faq" class="py-16 md:py-24 bg-white">
     <div class="container mx-auto px-6">
         <div class="text-center max-w-3xl mx-auto mb-16">
@@ -974,7 +989,7 @@ function getStaticDeals() {
             <div class="bg-white rounded-xl border border-gray-200 shadow-sm mb-6 overflow-hidden">
                 <button class="faq-toggle w-full flex justify-between items-center p-6 text-left">
                     <div class="flex items-center">
-                        <div class="w-10 h-10 rounded-lg bg-primary-100 flex items-center justify-center text-primary-500 mr-4">
+                        <div class="faq-icon-container w-10 h-10 rounded-lg bg-primary-100 flex items-center justify-center text-primary-500 mr-4">
                             <i class="fas fa-question"></i>
                         </div>
                         <h3 class="text-lg font-bold text-gray-900">How does BetterPrice find the best prices?</h3>
@@ -992,7 +1007,7 @@ function getStaticDeals() {
             <div class="bg-white rounded-xl border border-gray-200 shadow-sm mb-6 overflow-hidden">
                 <button class="faq-toggle w-full flex justify-between items-center p-6 text-left">
                     <div class="flex items-center">
-                        <div class="w-10 h-10 rounded-lg bg-secondary-100 flex items-center justify-center text-secondary-500 mr-4">
+                        <div class="faq-icon-container w-10 h-10 rounded-lg bg-secondary-100 flex items-center justify-center text-secondary-500 mr-4">
                             <i class="fas fa-shield-alt"></i>
                         </div>
                         <h3 class="text-lg font-bold text-gray-900">Is my payment information secure when I buy through BetterPrice?</h3>
@@ -1010,7 +1025,7 @@ function getStaticDeals() {
             <div class="bg-white rounded-xl border border-gray-200 shadow-sm mb-6 overflow-hidden">
                 <button class="faq-toggle w-full flex justify-between items-center p-6 text-left">
                     <div class="flex items-center">
-                        <div class="w-10 h-10 rounded-lg bg-accent-100 flex items-center justify-center text-accent-500 mr-4">
+                        <div class="faq-icon-container w-10 h-10 rounded-lg bg-accent-100 flex items-center justify-center text-accent-500 mr-4">
                             <i class="fas fa-bell"></i>
                         </div>
                         <h3 class="text-lg font-bold text-gray-900">How do price alerts work?</h3>
@@ -1028,7 +1043,7 @@ function getStaticDeals() {
             <div class="bg-white rounded-xl border border-gray-200 shadow-sm mb-6 overflow-hidden">
                 <button class="faq-toggle w-full flex justify-between items-center p-6 text-left">
                     <div class="flex items-center">
-                        <div class="w-10 h-10 rounded-lg bg-primary-100 flex items-center justify-center text-primary-500 mr-4">
+                        <div class="faq-icon-container w-10 h-10 rounded-lg bg-primary-100 flex items-center justify-center text-primary-500 mr-4">
                             <i class="fas fa-sync-alt"></i>
                         </div>
                         <h3 class="text-lg font-bold text-gray-900">How often are prices updated?</h3>
@@ -1046,7 +1061,7 @@ function getStaticDeals() {
             <div class="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden">
                 <button class="faq-toggle w-full flex justify-between items-center p-6 text-left">
                     <div class="flex items-center">
-                        <div class="w-10 h-10 rounded-lg bg-secondary-100 flex items-center justify-center text-secondary-500 mr-4">
+                        <div class="faq-icon-container w-10 h-10 rounded-lg bg-secondary-100 flex items-center justify-center text-secondary-500 mr-4">
                             <i class="fas fa-percentage"></i>
                         </div>
                         <h3 class="text-lg font-bold text-gray-900">Do you apply coupon codes automatically?</h3>
@@ -1068,7 +1083,6 @@ function getStaticDeals() {
             </div>
         </div>
     </div>
-
 </section>
 
 <script>
